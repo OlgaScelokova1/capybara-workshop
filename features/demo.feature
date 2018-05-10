@@ -1,10 +1,17 @@
 Feature: Demo Feature
 
-    Scenario: Open SignUp Page
-        Given I am on Appimation home page
-        When I open Try now
-        Then I close Try now
+    Scenario: Enter SignUp info
+          Given I am on Appimation home page
+          When I open SignUp page
+          And I see that SignUp page is visible
+          And I enter all required information
+          And I close SignUp view
+          Then SignUp view is not visible
 
-    Scenario: I can send contact us message
-        Given I am on Appimation home page
-        When I enter "lalalalla" and "namemname" in name in contact us
+    Scenario: Can't login with invalid data
+          Given I am on Appimation home page
+          When I open login page
+          And login page is visible
+          And I enter invalid "email_invalid" and "password_invalid"
+          And I try to login
+          Then login page is visible
