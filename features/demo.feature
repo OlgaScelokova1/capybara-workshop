@@ -1,10 +1,14 @@
 Feature: Demo Feature
 
-    Scenario: Open SignUp Page
-        Given I am on Appimation home page
-        When I open Try now
-        Then I close Try now
+    Scenario: Enter SignUp info
+          Given I am on Appimation home page
+          When I open SignUp page
+          And I enter "automation@gmail.com", "Parole123", "Automation" in SignUp form
+          Then I close SignUp view
 
-    Scenario: I can send contact us message
-        Given I am on Appimation home page
-        When I enter "lalalalla" and "namemname" in name in contact us
+    Scenario: Can't login with invalid data
+          Given I am on Appimation home page
+          When I open login page
+          And I enter invalid "email_invalid@gmail.com" and "password_invalid" in Login form
+          And I try to login
+          Then error message is visible
