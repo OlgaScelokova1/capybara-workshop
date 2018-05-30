@@ -1,9 +1,13 @@
 Feature: Demo Feature
 
-    Scenario: Open SignUp Page
-        When I am on Appimation home page
-        Then I validate Try now
+    Scenario: Enter SignUp info
+          Given I am on Appimation home page
+          When I open SignUp page
+          And I fill in SignUp form with all required information
+          Then I close SignUp view
 
-    Scenario: I can send contact us message
-        Given I am on Appimation home page
-        When I submit contact form
+    Scenario: Can't login with invalid data
+          Given I am on Appimation home page
+          When I open login page
+          And I enter invalid login data and try to login
+          Then error message is visible
